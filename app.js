@@ -44,6 +44,7 @@ DOM.addBook.addEventListener('click',(e)=>{
 
 //function to loop over theLibarary and print its content
 function appendCards(){
+    let lastObjectIndex=theLibrary.length-1;
            let card= document.createElement('div');
             card.classList.add('card');
             card.dataset.number=`${counter}`; //associate the card with index
@@ -53,11 +54,11 @@ function appendCards(){
             let pages=document.createElement('div');
             let status=document.createElement('div');
             let update=document.createElement('button');
-            title.textContent=theLibrary[counter].title;
+            title.textContent=theLibrary[lastObjectIndex].title;
             cancel.textContent='x';
-            author.textContent=theLibrary[counter].author;
-            pages.textContent=`${theLibrary[counter].pages} pages`;
-            status.textContent=theLibrary[counter].status;
+            author.textContent=theLibrary[lastObjectIndex].author;
+            pages.textContent=`${theLibrary[lastObjectIndex].pages} pages`;
+            status.textContent=theLibrary[lastObjectIndex].status;
             update.textContent='Update';
             card.appendChild(title);
             card.appendChild(cancel);
@@ -68,14 +69,40 @@ function appendCards(){
             DOM.booksContainer.appendChild(card);
             counter++;
             cancel.addEventListener('click', 
-            ()=> DOM.booksContainer.removeChild(card));
+            ()=> {DOM.booksContainer.removeChild(card);
+                for(let obj of theLibrary){
+                    if (obj.title===title.textContent){theLibrary.splice(theLibrary.indexOf(obj),1)}
+                }
+            });
             update.addEventListener('click',
             ()=>{
-                if(status.textContent==='Completed'){status.textContent='Not yet'}
-                else if(status.textContent==='Not yet'){status.textContent='Currently Reading'}
-                else if(status.textContent==='Currently Reading'){status.textContent='Completed'}
-            })
+                if(status.textContent==='Completed'){
+                    status.textContent='Not yet';
+                    for(let obj of theLibrary){
+                        if (obj.title===title.textContent){
+                            theLibrary[theLibrary.indexOf(obj)].status='Not yet'
+                    }}
+                    
+                }
+                else if(status.textContent==='Not yet'){
+                    status.textContent='Currently Reading';
+                    for(let obj of theLibrary){
+                        if (obj.title===title.textContent){
+                            theLibrary[theLibrary.indexOf(obj)].status='Currently Reading'
+                    }}
+                }
+                else if(status.textContent==='Currently Reading'){
+                    status.textContent='Completed';
+                    for(let obj of theLibrary){
+                        if (obj.title===title.textContent){
+                            theLibrary[theLibrary.indexOf(obj)].status='Completed';
+                    }}
+                }
+              
+            });
 }
+
+
 
 
 
