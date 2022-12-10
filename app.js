@@ -8,6 +8,8 @@ const DOM={
     bookPages:document.querySelector('#pages'),
     readStatus:document.querySelector('#status'),
     booksContainer:document.querySelector('.booksContainer'),
+   /* cardRemove:document.querySelectorAll('.cancel'),
+    cardUpdate:document.querySelectorAll('.update'),*/
 }
 //Event listiner to show the form when the plus button in clickes
 DOM.newBook.addEventListener('click',
@@ -37,15 +39,16 @@ DOM.addBook.addEventListener('click',(e)=>{
    theLibrary.push(obj);
    DOM.form.style.visibility='hidden';
    appendCards();
+
 });
 
 //function to loop over theLibarary and print its content
 function appendCards(){
            let card= document.createElement('div');
             card.classList.add('card');
+            card.dataset.number=`${counter}`; //associate the card with index
             let title=document.createElement('div');
             let cancel=document.createElement('button');
-            cancel.classList.add('cancel');
             let author=document.createElement('div');
             let pages=document.createElement('div');
             let status=document.createElement('div');
@@ -55,7 +58,7 @@ function appendCards(){
             author.textContent=theLibrary[counter].author;
             pages.textContent=`${theLibrary[counter].pages} pages`;
             status.textContent=theLibrary[counter].status;
-            update.textContent='Update'
+            update.textContent='Update';
             card.appendChild(title);
             card.appendChild(cancel);
             card.appendChild(author);
@@ -64,6 +67,15 @@ function appendCards(){
             card.appendChild(update);
             DOM.booksContainer.appendChild(card);
             counter++;
+            cancel.addEventListener('click', 
+            ()=> DOM.booksContainer.removeChild(card));
+            update.addEventListener('click',
+            ()=>{
+                if(status.textContent==='Completed'){status.textContent='Not yet'}
+                else if(status.textContent==='Not yet'){status.textContent='Currently Reading'}
+                else if(status.textContent==='Currently Reading'){status.textContent='Completed'}
+            })
 }
+
 
 
