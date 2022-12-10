@@ -113,6 +113,10 @@ form > button{
     border-radius: 25px;
 }
 
+form input, form select{
+    width: 80%;
+}
+
 
 .newBook{
     height: 50px;
