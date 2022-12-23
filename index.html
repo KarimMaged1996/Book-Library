@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
-    <script src="app.js" defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap"
+      rel="stylesheet"
+    />
+    <script src="app2.js" defer></script>
+  </head>
+  <body>
     <div class="header">
-        <div class="title">The Book Library</div>
+      <div class="title">The Book Library</div>
     </div>
     <div class="booksContainer">
-     <!--  <div class="card">
+      <!--  <div class="card">
             <div>Book Title</div>
             <button>x</button>
             <div>by:author</div>
@@ -22,37 +27,37 @@
             <div>Status: currently reading</div>
             <button>Update</button>
         </div> -->
-        <form action="#">
-            <div>
-                <div>Add New Book</div>
-                <button id="formCancel">x</button>
-            </div>
-            <div>
-                <label for="title"> Book Title</label>
-                <input type="text" id="title">
-            </div>
-            <div>
-                <label for="author"> Book Author</label>
-                <input type="text" id="author">
-            </div>
-            <div>
-                <label for="pages"> Number of Pages</label>
-                <input type="number" id="pages">
-            </div>
-            <div>
-                <label for="status"> Read Status </label>
-                <select  id="status">
-                    <option value="Completed">yes, I've read it</option>
-                    <option value="Currently Reading">Currently Reading</option>
-                    <option value="Not yet"> Not yet</option>
-                </select>
-            </div>
-            <button>Add Book</button>
-        </form>
-        <button class="newBook"> + </button>
+      <form action="#">
+        <div>
+          <div>Add New Book</div>
+          <button id="formCancel">x</button>
+        </div>
+        <div>
+          <label for="title"> Book Title</label>
+          <input type="text" id="title" />
+        </div>
+        <div>
+          <label for="author"> Book Author</label>
+          <input type="text" id="author" />
+        </div>
+        <div>
+          <label for="pages"> Number of Pages</label>
+          <input type="number" id="pages" />
+        </div>
+        <div>
+          <label for="status"> Read Status </label>
+          <select id="status">
+            <option value="Completed">yes, I've read it</option>
+            <option value="Currently Reading">Currently Reading</option>
+            <option value="Not yet">Not yet</option>
+          </select>
+        </div>
+        <button>Add Book</button>
+      </form>
+      <button class="newBook">+</button>
     </div>
     <div class="footer">
-        <div>Created by <strong>Karim Maged</strong></div>
+      <div>Created by <strong>Karim Maged</strong></div>
     </div>
-</body>
+  </body>
 </html>
