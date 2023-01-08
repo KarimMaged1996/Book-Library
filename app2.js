@@ -24,12 +24,15 @@ DOM.formCancel.addEventListener('click', () => {
 const theLibrary = [];
 
 // the constructor function that will create books
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  this.update = function update() {
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
+
+  update() {
     if (this.status === 'Completed') {
       this.status = 'Not yet';
     } else if (this.status === 'Not yet') {
@@ -37,7 +40,7 @@ function Book(title, author, pages, status) {
     } else if (this.status === 'Currently Reading') {
       this.status = 'Completed';
     }
-  };
+  }
 }
 
 // function that will create cards and append them to dom
